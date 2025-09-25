@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghibli Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <i class="fas fa-arrow-left back-button" id="back-button"></i>
+            <h1>Ghibli Store</h1>
+        </div>
+        <nav>
+            <a href="#" id="home-link">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="cart-icon-container" id="cart-icon-container">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Home Page with Banners and Categories -->
+    <main id="home-page" class="active">
+        <div class="full-width-container">
+            <div class="banner-carousel">
+                <div class="carousel-slides">
+                    <div class="carousel-slide active banner-solid-1">
+                        <div class="slide-content">
+                            <h2>New Collection Arrived</h2>
+                            <p>Explore the latest trends in fashion and accessories.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide banner-solid-2">
+                        <div class="slide-content">
+                            <h2>Seasonal Deals</h2>
+                            <p>Don't miss out on our limited-time offers and discounts!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide banner-solid-3">
+                        <div class="slide-content">
+                            <h2>Get 15% Off Your First Order</h2>
+                            <p>Sign up and get exclusive savings on your favorite items.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="category-container">
+            <h2 class="category-list-title">Shop by Category</h2>
+            <section class="category-grid" id="category-section">
+                <div class="category-card" data-category="apparel">
+                    <img src="https://placehold.co/300x200/c7d2fe/3b82f6?text=Apparel" alt="Apparel">
+                    <h3>Apparel</h3>
+                </div>
+                <div class="category-card" data-category="home-goods">
+                    <img src="https://placehold.co/300x200/d1d5db/4b5563?text=Home+Goods" alt="Home Goods">
+                    <h3>Home Goods</h3>
+                </div>
+                <div class="category-card" data-category="electronics">
+                    <img src="https://placehold.co/300x200/fecaca/ef4444?text=Electronics" alt="Electronics">
+                    <h3>Electronics</h3>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product List Page -->
+    <main id="products-page">
+        <h2 id="category-title" style="text-align: center; margin-bottom: 2rem; font-size: 2rem;"></h2>
+        <section class="product-grid" id="product-list"></section>
+    </main>
+
+    <!-- Product Detail Page -->
+    <main id="product-detail-page">
+        <section class="product-detail" id="product-detail-container">
+            <!-- Product details will be dynamically injected here -->
+        </section>
+    </main>
+
+    <!-- Shopping Cart Page -->
+    <main id="cart-page">
+        <h2 class="cart-title">Your Shopping Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be dynamically injected here -->
+        </div>
+        <div class="cart-summary">
+            Total: <span id="cart-total">₹0.00</span>
+        </div>
+        <button class="checkout-btn" id="proceed-to-checkout">Proceed to Checkout</button>
+    </main>
+
+    <!-- Checkout Page (Step 1) -->
+    <main id="checkout-page">
+        <h2 class="cart-title">Checkout</h2>
+        <div class="checkout-container">
+            <div class="customer-info-form">
+                <h2>Customer Information</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <input type="text" id="address" placeholder="Enter your full address" required>
+                </div>
+            </div>
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="summary-items">
+                    <!-- Summary items will be dynamically injected here -->
+                </div>
+                <div class="summary-item">
+                    <span>Delivery Charge</span>
+                    <span id="delivery-charge">₹50.00</span>
+                </div>
+                <div class="summary-total">
+                    <span>Grand Total</span>
+                    <span id="grand-total">₹0.00</span>
+                </div>
+                <button class="proceed-payment-btn" id="proceed-to-payment">Proceed to Payment</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Page (Step 2) -->
+    <main id="payment-page">
+        <h2 class="cart-title">Choose Payment Method</h2>
+        <div class="payment-options-container">
+            <div class="payment-option">
+                <label>
+                    <input type="radio" name="payment-method" value="online" checked>
+                    Online Payment
+                </label>
+            </div>
+            <div class="payment-option">
+                <label>
+                    <input type="radio" name="payment-method" value="cod">
+                    Cash on Delivery
+                </label>
+            </div>
+            <button class="buy-now-btn" id="buy-now">Final Buy Now</button>
+        </div>
+    </main>
+    
+    <!-- Order Placed Page (Final Step) -->
+    <main id="order-placed-page">
+        <div class="order-placed-container">
+            <h2>Order Placed!</h2>
+            <p>Thank you for your purchase. We will notify you once your order has been shipped.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: info@ghiblistore.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+            <div class="footer-section help-links">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright-bar">
+            <p>&copy; 2025 Ghibli Store. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
